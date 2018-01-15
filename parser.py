@@ -16,11 +16,11 @@ with open('mbox.mbox') as fp:
 				if 0 <= 0 < len(customerNames):
 					customerFName = customerNames[0]
 					sys.stdout.write(customerFName.strip())
-					sys.stdout.write(",")
+				sys.stdout.write(",")
 				if 0 <= 1 < len(customerNames):
 					customerLName = customerNames[1]
 					sys.stdout.write(customerLName.strip())
-					sys.stdout.write(",")
+				sys.stdout.write(",")
 
 			strPos = emailStr.find("Reply-To:")
 			if (strPos > -1):
@@ -29,7 +29,7 @@ with open('mbox.mbox') as fp:
 				if 0 <= 0 < len(emailAddress):
 					emailFinal = emailAddress[-1]
 					sys.stdout.write(emailFinal.strip())
-					sys.stdout.write(",")
+				sys.stdout.write("\n")
 
 			emailBuffer = []
 		else:
