@@ -1,4 +1,4 @@
-# etsyorderemailscraper
-Scrapes details from Etsy Order emails.  Could be a lot tidier, but good enough was good enough and it did the job for over 10,000 emails in an mbox file.
+# PayPal Email Order Scraper
+Based on the [Etsy Email Order Scraper](https://github.com/simonprickett/etsyorderemailscraper)
 
-I am unable to provide sample emails as this was done for a friend's business and I cant commit their mbox file here.
+Scrapes details from PayPal order emails. Based on using an mbox export file for the paypal emails to provide a list suitable for import to Mailchimp or other marketing tool.
