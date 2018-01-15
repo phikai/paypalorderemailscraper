@@ -1,33 +1,35 @@
 import quopri
 import sys
 
-with open('mbox') as fp:
+with open('mbox.mbox') as fp:
 	emailBuffer = []
 
 	for line in fp:
-		if (line.startswith("From: Etsy Transactions <transaction@etsy.com>")):
+		if (line.startswith("To: Karla Armstrong <petitechalet.etsy@gmail.com>")):
 			emailStr = quopri.decodestring("".join(emailBuffer))
 
-			strPos = emailStr.find("Order Total:")
+			strPos = emailStr.find("From:")
 			if (strPos > -1):
 				newLinePos = emailStr.find("\n", strPos)
-				orderTotal = emailStr[strPos + 12:newLinePos]
-				sys.stdout.write(orderTotal.replace("USD", "").strip())
-				sys.stdout.write(",")
+				customerName = emailStr[strPos + 6:newLinePos]
+				customerNames = customerName.split()
+				if 0 <= 0 < len(customerNames):
+					customerFName = customerNames[0]
+					sys.stdout.write(customerFName.strip())
+					sys.stdout.write(",")
+				if 0 <= 1 < len(customerNames):
+					customerLName = customerNames[1]
+					sys.stdout.write(customerLName.strip())
+					sys.stdout.write(",")
 
-			strPos = emailStr.find("* Email")
+			strPos = emailStr.find("Reply-To:")
 			if (strPos > -1):
 				newLinePos = emailStr.find("\n", strPos)
-				emailAddress = emailStr[strPos + 7:newLinePos]
-				sys.stdout.write(emailAddress.strip())
-				sys.stdout.write(",")
-
-			strPos = emailStr.find("Shipping Address:")
-			if (strPos > -1):
-				newLinePos = emailStr.find("\n", strPos + 19)
-				customerName = emailStr[strPos + 18:newLinePos]
-				sys.stdout.write(customerName.strip())
-				sys.stdout.write("\n")
+				emailAddress = emailStr[strPos + 10:newLinePos].split("<")
+				if 0 <= 0 < len(emailAddress):
+					emailFinal = emailAddress[-1]
+					sys.stdout.write(emailFinal.strip())
+					sys.stdout.write(",")
 
 			emailBuffer = []
 		else:
