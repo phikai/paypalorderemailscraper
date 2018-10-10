@@ -1,3 +1,6 @@
+**PSA**: Project has moved to [gitlab](https://gitlab.com/phikai/wordpress-force-http). This repo will remain on Github as a mirror.
+---
+
 # PayPal Email Order Scraper
 Based on the [Etsy Email Order Scraper](https://github.com/simonprickett/etsyorderemailscraper)
 
